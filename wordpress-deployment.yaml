@@ -22,3 +22,13 @@ spec:
           image: 992382545251.dkr.ecr.us-east-1.amazonaws.com/guytamari/k8s-final:wordpress-latest
           ports:
             - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: wordpress
+          volumeMounts:
+            - name: wordpress-storage
+              mountPath: /var/www/html
+      volumes:
+        - name: wordpress-storage
+          persistentVolumeClaim:
+            claimName: wordpress-pv-claim

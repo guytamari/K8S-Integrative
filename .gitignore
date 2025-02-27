@@ -2,3 +2,4 @@ docker-compose-example
 notes.txt
 configmap.yaml
 nginx-values.yaml
+secret.yaml
