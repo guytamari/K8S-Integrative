@@ -1,14 +1,14 @@
 controller:
+  rbac:
+    create: "true"
+    scope: "true"
   scope:
-    enabled: true
-    namespace: guytamari
+    enabled: "true"
+    namespace: "guytamari"
   service:
     type: LoadBalancer
   ingressClassResource:
-    name: nginx
-    enabled: true
-    default: true
+    name: "nginx"
+    enabled: "true"
+    default: "true"
     controllerValue: "k8s.io/ingress-nginx"
-
-rbac:
-  scope: true

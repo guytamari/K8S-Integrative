@@ -15,6 +15,8 @@ spec:
       labels:
         app: wordpress
     spec:
+      imagePullSecrets:
+        - name: ecr-secret
       containers:
         - name: wordpress
           image: 992382545251.dkr.ecr.us-east-1.amazonaws.com/guytamari/k8s-final:wordpress-latest
