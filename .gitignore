@@ -3,3 +3,4 @@ notes.txt
 configmap.yaml
 nginx-values.yaml
 secret.yaml
+update_kubeconfig.sh

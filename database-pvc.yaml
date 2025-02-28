@@ -4,6 +4,7 @@ metadata:
   name: db-pv-claim
   namespace: guytamari
 spec:
+  storageClassName: ebs-sc
   accessModes:
     - ReadWriteOnce
   resources:
