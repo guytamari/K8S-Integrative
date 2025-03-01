@@ -3,7 +3,7 @@ entries:
   wordpress-mysql-app:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-01T18:55:53.0747611+02:00"
+    created: "2025-03-01T20:06:24.3442887+02:00"
     dependencies:
     - name: kube-prometheus-stack
       repository: https://prometheus-community.github.io/helm-charts
@@ -17,16 +17,16 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-01T18:55:53.0873078+02:00"
+    created: "2025-03-01T20:06:24.3568194+02:00"
     dependencies:
     - name: kube-prometheus-stack
       repository: https://prometheus-community.github.io/helm-charts
       version: 51.x.x
     description: A Helm chart for WordPress with mariadb and Grafana monitoring
-    digest: 428c4df631b2ce32a8bd240c602c3b55f3ef2a616a14dc971a72e8b0394df1f7
+    digest: 8a9b71cf8a3180ed911415563443089a27a9bc1c76743305eb62c582a3ac0d6b
     name: wordpress-mysql-app
     type: application
     urls:
     - charts/wordpress-mysql-app-0.1.0.tgz
     version: 0.1.0
-generated: "2025-03-01T18:55:53.0624381+02:00"
+generated: "2025-03-01T20:06:24.3318556+02:00"

@@ -8,7 +8,7 @@ wordpress:
   image:
     repository: 992382545251.dkr.ecr.us-east-1.amazonaws.com/guytamari/k8s-final
     tag: wordpress-latest
-  replicas: 2
+  replicas: 1
   storage:
     size: 1Gi
   service:
