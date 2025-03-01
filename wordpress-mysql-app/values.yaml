@@ -6,8 +6,8 @@ storageClass:
 
 wordpress:
   image:
-    repository: wordpress
-    tag: latest
+    repository: 992382545251.dkr.ecr.us-east-1.amazonaws.com/guytamari/k8s-final
+    tag: wordpress-latest
   replicas: 2
   storage:
     size: 1Gi
@@ -17,8 +17,8 @@ wordpress:
 
 database:
   image:
-    repository: mariadb
-    tag: 10.6.4
+    repository: 992382545251.dkr.ecr.us-east-1.amazonaws.com/guytamari/k8s-final
+    tag: mariadb-10.6.4
   storage:
     size: 1Gi
   credentials:
