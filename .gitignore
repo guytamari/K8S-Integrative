@@ -5,3 +5,6 @@ nginx-values.yaml
 secret.yaml
 update_kubeconfig.sh
 .editorconfig
+.vscode/
+.vscode/settings.json
+

@@ -2,14 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress-deployment
-  namespace: { { .Values.namespace } }
-  labels: { { - include "wordpress-mysql-app.labels" . | nindent 4 } }
+  namespace: {{ .Values.namespace }}
+  labels: {{- include "wordpress-mysql-app.labels" . | nindent 4 }}
 spec:
-  replicas: { { .Values.wordpress.replicas } }
+  replicas: {{ .Values.wordpress.replicas }}
   selector:
     matchLabels:
-      { { - include "wordpress-mysql-app.selectorLabels" . | nindent 6 } }
+      {{- include "wordpress-mysql-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        { { - include "wordpress-mysql-app.selectorLabels" . | nindent 8 } }
+        {{- include "wordpress-mysql-app.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: wordpress
+          image: "{{.Values.wordpress.image.repository}}:{{.Values.wordpress.image.tag}}"
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: wordpress
+          volumeMounts:
+            - name: wordpress-storage
+              mountPath: /var/www/html
+      volumes:
+        - name: wordpress-storage
+          persistentVolumeClaim:
+            claimName: wordpress-pv-claim
