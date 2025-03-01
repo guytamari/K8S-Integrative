@@ -25,6 +25,7 @@ helm repo update
 helm install my-release my-repo/wordpress-mysql-app \
   --namespace your-namespace \
   --create-namespace
+  --set namespace=your-namespace
 ```
 
 ## Configuration
