@@ -1,4 +1,4 @@
-namespace: default
+namespace: guytamari-test
 
 storageClass:
   name: ebs-sc
