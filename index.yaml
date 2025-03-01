@@ -13,7 +13,7 @@ entries:
     name: wordpress-mysql-app
     type: application
     urls:
-    - wordpress-mysql-app-0.1.0.tgz
+    - charts/wordpress-mysql-app-0.1.0.tgz
     version: 0.1.0
   - apiVersion: v2
     appVersion: 1.0.0
