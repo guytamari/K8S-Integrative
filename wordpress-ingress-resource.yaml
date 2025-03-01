@@ -4,13 +4,22 @@ metadata:
   name: wordpress-ingress
   namespace: guytamari
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
+          - path: /(grafana|login)(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prometheus-grafana
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:

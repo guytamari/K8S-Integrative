@@ -1,0 +1,47 @@
+nameOverride: "prometheus"
+fullnameOverride: "prometheus"
+
+prometheus:
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+grafana:
+  adminPassword: "admin"
+  persistence:
+    enabled: true
+    size: 1Gi
+    storageClassName: ebs-sc
+  service:
+    type: ClusterIP
+
+alertmanager:
+  enabled: true
+  service:
+    type: ClusterIP
+
+prometheusOperator:
+  namespaces:
+    additional:
+      - guytamari
+
+global:
+  rbac:
+    create: true
+    createAggregateClusterRoles: true
+    pspEnabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+kubeEtcd:
+  enabled: false
+
+defaultRules:
+  create: true
+  rules:
+    etcd: false
+    kubeScheduler: false
