@@ -15,7 +15,7 @@ This Helm chart deploys WordPress with MySQL (MariaDB) and includes Prometheus/G
 1. Add the Helm repository:
 
 ```bash
-helm repo add my-repo https://github.com/guytamari/K8S-Integrative.git
+helm repo add my-repo https://guytamari.github.io/K8S-Integrative
 helm repo update
 ```
 
