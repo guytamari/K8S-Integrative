@@ -1,0 +1,45 @@
+namespace: default
+
+storageClass:
+  name: ebs-sc
+  provisioner: ebs.csi.aws.com
+
+wordpress:
+  image:
+    repository: wordpress
+    tag: latest
+  replicas: 2
+  storage:
+    size: 1Gi
+  service:
+    type: ClusterIP
+    port: 80
+
+database:
+  image:
+    repository: mariadb
+    tag: 10.6.4
+  storage:
+    size: 1Gi
+  credentials:
+    rootPassword: somewordpress
+    database: wordpress
+    user: wordpress
+    password: wordpress
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+
+grafana:
+  enabled: true
+  adminPassword: prom-operator
+
+prometheus:
+  enabled: true
+  persistence:

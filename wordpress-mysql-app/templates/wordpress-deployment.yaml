@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+  namespace: { { .Values.namespace } }
+  labels: { { - include "wordpress-mysql-app.labels" . | nindent 4 } }
+spec:
+  replicas: { { .Values.wordpress.replicas } }
+  selector:
+    matchLabels:
+      { { - include "wordpress-mysql-app.selectorLabels" . | nindent 6 } }
+  template:
+    metadata:
+      labels:
+        { { - include "wordpress-mysql-app.selectorLabels" . | nindent 8 } }

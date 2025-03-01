@@ -1,0 +1,10 @@
+apiVersion: v2
+name: wordpress-mysql-app
+description: A Helm chart for WordPress with mariadb and Grafana monitoring
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: kube-prometheus-stack
+    version: 51.x.x
+    repository: https://prometheus-community.github.io/helm-charts
