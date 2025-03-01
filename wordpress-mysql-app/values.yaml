@@ -43,3 +43,8 @@ grafana:
 prometheus:
   enabled: true
   persistence:
+
+
+services:
+  grafana: my-release-grafana
+  wordpress: guytamari-test-wordpress-service
