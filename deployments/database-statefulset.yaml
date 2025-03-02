@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: db
-  namespace: guytamari
+  namespace: guytamari2
 spec:
   serviceName: db
   replicas: 1
@@ -23,7 +23,7 @@ spec:
             - --default-authentication-plugin=mysql_native_password
           envFrom:
             - secretRef:
-                name: db-secret
+                name: db-secret-guytamari
           ports:
             - containerPort: 3306
             - containerPort: 33060

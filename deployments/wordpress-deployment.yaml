@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress-deployment
-  namespace: guytamari
+  namespace: guytamari2
   labels:
     app: wordpress
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: wordpress
@@ -24,7 +24,7 @@ spec:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: wordpress
+                name: wordpress-configmap
           volumeMounts:
             - name: wordpress-storage
               mountPath: /var/www/html

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: db-pv-claim
-  namespace: guytamari
+  namespace: guytamari2
 spec:
   storageClassName: ebs-sc-guytamari
   accessModes:

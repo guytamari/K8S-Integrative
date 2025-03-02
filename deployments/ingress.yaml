@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wordpress-ingress
+  namespace: guytamari2
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+spec:
+  ingressClassName: guytamari2
+  rules:
+  - host: a3aa4de04d7c9462cbf7d03ee2c7a17f-2120318299.us-east-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /(grafana|login)(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: kube-prom-stack-guytamari2-grafana
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wordpress-service
+            port:
+              number: 80
+
