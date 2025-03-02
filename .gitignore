@@ -7,4 +7,4 @@ update_kubeconfig.sh
 .editorconfig
 .vscode/
 .vscode/settings.json
-
+nginx-ingress.yaml
