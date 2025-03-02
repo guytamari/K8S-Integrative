@@ -4,7 +4,7 @@ metadata:
   name: wordpress-pv-claim
   namespace: guytamari
 spec:
-  storageClassName: ebs-sc
+  storageClassName: ebs-sc-guytamari
   accessModes:
     - ReadWriteOnce
   resources:

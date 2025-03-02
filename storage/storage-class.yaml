@@ -2,6 +2,6 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   namespace: guytamari
-  name: ebs-sc
+  name: ebs-sc-guytamari
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
