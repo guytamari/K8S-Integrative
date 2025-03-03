@@ -23,8 +23,8 @@ spec:
           ports:
             - containerPort: 80
           envFrom:
-            - configMapRef:
-                name: wordpress-configmap
+            - secretRef:
+                name: db-secret-guytamari
           volumeMounts:
             - name: wordpress-storage
               mountPath: /var/www/html
