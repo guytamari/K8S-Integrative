@@ -4,9 +4,9 @@ metadata:
   name: db-pv-claim
   namespace: guytamari2
 spec:
-  storageClassName: ebs-sc-guytamari
+  storageClassName: aws-efs-nitzanim
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi

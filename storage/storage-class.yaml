@@ -1,7 +1,19 @@
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   name: ebs-sc-nitzanim
+# provisioner: ebs.csi.aws.com
+# volumeBindingMode: WaitForFirstConsumer
+# allowVolumeExpansion: true
+# reclaimPolicy: Retain
+
+
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  namespace: guytamari2
-  name: ebs-sc-guytamari
-provisioner: ebs.csi.aws.com
-volumeBindingMode: WaitForFirstConsumer
+  name: aws-efs-nitzanim
+provisioner: efs.csi.aws.com
+allowVolumeExpansion: true
+reclaimPolicy: Retain
+parameters:
+  fileSystemId: fs-043809555c953e8f0
